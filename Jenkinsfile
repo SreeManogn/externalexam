@@ -24,17 +24,5 @@ pipeline{
             bat "kubectl apply -f service.yaml"
             }
         }
-        post{
-            success{
-                steps{
-                echo "success"
-                }
-            }
-            failure{
-                steps{
-                echo "failed"
-                }
-            }
-        }
     }
 }
