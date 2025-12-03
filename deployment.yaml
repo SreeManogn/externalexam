@@ -1,20 +1,19 @@
-apiVersion: app/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: appdeployment
 spec:
   replicas: 6
-  matchLabel:
-    Label: 
+  selector:
+    matchLabels:
       app: appdeployment
   template:
-      metadata: 
-        Label:
-          app: appdeployment
-  spec:
-    containers:
-      - name: mycontainer
-        id: 
-        ports:
-          - containerport: 5000
-
+    metadata:
+      labels:
+        app: appdeployment
+    spec:
+      containers:
+        - name: mycontainer
+          image: 22251a1257it258/myapp:v1
+          ports:
+            - containerPort: 5000
